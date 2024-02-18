@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from .models import News
+from .models import Article
+from django.contrib.auth.models import User
 
-class NewsSerializer(serializers.ModelSerializer):
+class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
-        model = News
+        model = Article
         fields = '__all__'

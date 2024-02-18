@@ -3,13 +3,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import filters, generics
-from .models import News
-from .serializers import NewsSerializer
+from .models import Article
+from .serializers import ArticleSerializer
 # Create your views here.
 
 class NewsList(generics.ListCreateAPIView):
-    queryset = News.objects.all()
-    serializer_class = NewsSerializer
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
     pagination_class = PageNumberPagination
 
     filter_backends = [filters.SearchFilter]
@@ -29,5 +29,5 @@ class NewsList(generics.ListCreateAPIView):
         return queryset
 
 class NewsDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = News.objects.all()
-    serializer_class = NewsSerializer
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
